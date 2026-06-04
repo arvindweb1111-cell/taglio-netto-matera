@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taglio Netto — Parrucchiere Uomo | Matera</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#080808;
+  --dark:#111;
+  --steel:#1C2B3A;
+  --red:#C0392B;
+  --red2:#E74C3C;
+  --gold:#D4A853;
+  --cream:#F5F5F0;
+  --light:#EEEEE8;
+  --text:#1A1A1A;
+  --muted:#777;
+  --display:'Oswald',sans-serif;
+  --body:'Lato',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--body);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.97);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--red)}
+.nav-logo{font-family:var(--display);font-size:20px;color:#fff;text-decoration:none;letter-spacing:3px;font-weight:700}
+.nav-logo small{display:block;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.35);font-family:var(--body);font-weight:400;text-transform:uppercase;margin-top:1px}
+.nav-book{background:var(--red);color:#fff;padding:8px 16px;font-family:var(--display);font-size:13px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=90') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.98) 0%,rgba(8,8,8,.6) 60%,rgba(8,8,8,.2) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 20px 56px;width:100%;text-align:center}
+.hero-since{font-family:var(--display);font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.hero-title{font-family:var(--display);font-size:72px;line-height:.88;color:#fff;margin-bottom:6px;font-weight:700;letter-spacing:4px}
+.hero-sub-title{font-family:var(--display);font-size:22px;color:var(--red);letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.hero-divider{width:48px;height:2px;background:var(--gold);margin:16px auto}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;max-width:380px;margin:0 auto 28px;font-weight:300}
+.hero-cta{display:flex;flex-direction:column;gap:10px;max-width:280px;margin:0 auto}
+.btn-red{background:var(--red);color:#fff;padding:14px;font-family:var(--display);font-size:14px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:block;text-align:center}
+.btn-gold{border:1px solid var(--gold);color:var(--gold);padding:12px;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:block;text-align:center}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;background:var(--red)}
+.stat{padding:18px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}
+.stat:nth-child(even){border-right:none}
+.stat-num{font-family:var(--display);font-size:30px;color:#fff;display:block;font-weight:700;line-height:1;letter-spacing:1px}
+.stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px;display:block}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.g-cell{overflow:hidden;height:200px;position:relative}
+.g-cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;filter:grayscale(15%)}
+.g-cell:hover img{transform:scale(1.05);filter:grayscale(0%)}
+.g-label{position:absolute;bottom:10px;left:10px;background:rgba(8,8,8,.8);color:var(--gold);font-family:var(--display);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;font-weight:600}
+
+/* ABOUT */
+.about{padding:56px 20px;background:var(--dark)}
+.about-img{width:100%;height:260px;object-fit:cover;display:block;margin-bottom:28px;filter:grayscale(10%)}
+.ab-pre{font-family:var(--display);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
+.ab-title{font-family:var(--display);font-size:36px;color:#fff;font-weight:700;letter-spacing:2px;line-height:1;margin-bottom:8px;text-transform:uppercase}
+.ab-rule{width:32px;height:2px;background:var(--red);margin:14px 0 18px}
+.about p{color:rgba(255,255,255,.5);line-height:1.9;font-size:14px;margin-bottom:14px;font-weight:300}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.about-list li{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.6);font-size:14px}
+.about-list li::before{content:'//';color:var(--red);font-family:var(--display);font-weight:700;flex-shrink:0;font-size:12px;margin-top:2px}
+
+/* SERVIZI */
+.servizi{padding:56px 20px;background:var(--cream)}
+.sec-pre{font-family:var(--display);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px;font-weight:600}
+.sec-title{font-family:var(--display);font-size:40px;color:var(--black);font-weight:700;letter-spacing:2px;line-height:1;text-transform:uppercase;margin-bottom:28px}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:3px}
+.svc-item{background:var(--light);padding:22px 20px;display:flex;justify-content:space-between;align-items:center;border-left:3px solid transparent;transition:all .3s}
+.svc-item:hover{border-left-color:var(--red);background:#fff}
+.svc-name{font-family:var(--display);font-size:20px;color:var(--black);letter-spacing:1px;font-weight:600;text-transform:uppercase}
+.svc-desc{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300}
+.svc-arrow{color:var(--red);font-family:var(--display);font-size:18px;font-weight:700;flex-shrink:0}
+
+/* BARBER STRIP */
+.barber-strip{position:relative;height:280px;overflow:hidden}
+.barber-strip img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(30%)}
+.barber-overlay{position:absolute;inset:0;background:rgba(8,8,8,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.bs-pre{font-family:var(--display);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.bs-title{font-family:var(--display);font-size:36px;color:#fff;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.bs-sub{color:rgba(255,255,255,.5);font-size:13px;margin-top:12px;max-width:340px;font-weight:300;line-height:1.7}
+
+/* RECENSIONI */
+.recensioni{padding:56px 20px;background:var(--light)}
+.rev-header{display:flex;align-items:center;gap:20px;background:var(--black);padding:20px;margin-bottom:20px}
+.rev-num{font-family:var(--display);font-size:56px;color:var(--gold);display:block;line-height:1;font-weight:700}
+.rev-stars{color:var(--gold);font-size:18px;letter-spacing:2px;margin:4px 0}
+.rev-label{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase}
+.rev-grid{display:flex;flex-direction:column;gap:3px}
+.rev-card{background:#fff;padding:22px;border-left:3px solid var(--red)}
+.rev-text{font-size:14px;color:var(--text);line-height:1.8;font-style:italic;margin-bottom:10px}
+.rev-author{font-family:var(--display);font-size:11px;color:var(--red);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* SOCIAL */
+.social-strip{background:var(--steel);padding:32px 20px;text-align:center}
+.ss-title{font-family:var(--display);font-size:24px;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.ss-sub{color:rgba(255,255,255,.4);font-size:13px;margin-bottom:20px;font-weight:300}
+.ss-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ss-btn{border:1px solid var(--gold);color:var(--gold);padding:10px 22px;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.ss-btn:hover{background:var(--gold);color:var(--black)}
+
+/* CONTATTI */
+.contatti{padding:56px 20px;background:var(--black)}
+.ct-pre{font-family:var(--display);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ct-title{font-family:var(--display);font-size:36px;color:#fff;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1;margin-bottom:8px}
+.ct-rule{width:32px;height:2px;background:var(--red);margin:14px 0 18px}
+.ct-text{color:rgba(255,255,255,.45);font-size:14px;line-height:1.8;margin-bottom:24px;font-weight:300}
+.c-item{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.c-icon{width:36px;height:36px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.c-info strong{color:#fff;display:block;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.c-info a,.c-info span{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none}
+.c-info a:hover{color:var(--gold)}
+.wa-box{background:var(--red);padding:28px;margin-top:24px;text-align:center}
+.wa-title{font-family:var(--display);font-size:22px;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.wa-sub{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:16px;line-height:1.6;font-weight:300}
+.wa-btn{background:#fff;color:var(--red);padding:12px 28px;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block}
+
+/* FOOTER */
+footer{background:var(--black);padding:24px 20px;border-top:3px solid var(--red);text-align:center}
+.footer-logo{font-family:var(--display);font-size:22px;color:#fff;letter-spacing:4px;font-weight:700}
+.footer-logo span{color:var(--red)}
+.footer-sub{font-size:9px;color:rgba(255,255,255,.25);margin:4px 0 8px;letter-spacing:3px;text-transform:uppercase}
+.footer-info{color:rgba(255,255,255,.3);font-size:12px;line-height:1.9}
+
+/* DESKTOP */
+@media(min-width:768px){
+  nav{padding:12px 60px}
+  .hero-content{padding:0 60px 80px;text-align:left}
+  .hero-divider{margin:16px 0}
+  .hero-sub{margin:0 0 28px}
+  .hero-cta{flex-direction:row;max-width:none}
+  .btn-red,.btn-gold{width:auto;display:inline-block;padding-left:32px;padding-right:32px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none}
+  .stat:nth-child(even){border-right:1px solid rgba(255,255,255,.15)}
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .g-cell{height:260px}
+  .about{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-img{height:520px;margin-bottom:0}
+  .servizi{padding:100px 60px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .barber-strip{height:360px}
+  .recensioni{padding:100px 60px}
+  .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;flex-direction:unset}
+  .social-strip{padding:48px 60px}
+  .contatti{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  .wa-box{margin-top:0}
+  footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:center;text-align:left}
+  .footer-sub{margin:3px 0 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">TAGLIO NETTO<small>Parrucchiere · Matera</small></a>
+  <a href="https://wa.me/393333980957" target="_blank" class="nav-book">💬 PRENOTA</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-since">✦ Parrucchiere Uomo · Matera · Filippo ✦</p>
+    <h1 class="hero-title">TAGLIO<br>NETTO</h1>
+    <p class="hero-sub-title">Il Barbiere di Matera</p>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Taglio preciso, stile impeccabile — da Filippo ogni cliente esce con un look da uomo vero. 54 recensioni a 4.8 stelle parlano da sole.</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/393333980957" target="_blank" class="btn-red">💬 PRENOTA SU WHATSAPP</a>
+      <a href="#servizi" class="btn-gold">I NOSTRI SERVIZI →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">54</span><span class="stat-label">Recensioni Google</span></div>
+  <div class="stat"><span class="stat-num">4.8★</span><span class="stat-label">Valutazione</span></div>
+  <div class="stat"><span class="stat-num">✅</span><span class="stat-label">Autorizzato</span></div>
+  <div class="stat"><span class="stat-num">📍</span><span class="stat-label">Via Marconi, Matera</span></div>
+</div>
+
+<!-- GALLERY — all different images -->
+<div class="gallery">
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80" alt="Barbiere Matera">
+    <div class="g-label">Il Barbiere</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="Taglio uomo">
+    <div class="g-label">Taglio Uomo</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80" alt="Barba">
+    <div class="g-label">Barba & Rasatura</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=600&q=80" alt="Styling uomo">
+    <div class="g-label">Styling</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="chi-siamo">
+  <img class="about-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Taglio Netto salone">
+  <div>
+    <p class="ab-pre">Chi Siamo</p>
+    <h2 class="ab-title">IL BARBIERE DI FIDUCIA A MATERA</h2>
+    <div class="ab-rule"></div>
+    <p>Taglio Netto è il punto di riferimento per l'uomo che vuole sempre essere al meglio a Matera. Filippo e il suo team offrono un servizio preciso, professionale e sempre aggiornato sulle ultime tendenze dello stile maschile.</p>
+    <p>Con 54 recensioni a 4.8 stelle su Google, Taglio Netto è il barbiere di cui ogni uomo ha bisogno. Un ambiente accogliente, mani esperte e un risultato sempre impeccabile.</p>
+    <ul class="about-list">
+      <li>54 recensioni Google — 4.8 stelle</li>
+      <li>Taglio uomo, barba e rasatura professionale</li>
+      <li>Via G. Marconi 111 — Matera</li>
+      <li>Filippo — titolare e master barbiere</li>
+      <li>Instagram e Facebook attivi</li>
+      <li>Prenotazione rapida su WhatsApp</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <p class="sec-pre">Servizi</p>
+  <h2 class="sec-title">COSA FACCIAMO</h2>
+  <div class="svc-grid">
+    <div class="svc-item"><div><div class="svc-name">TAGLIO UOMO</div><div class="svc-desc">Taglio classico o moderno — sempre preciso e personalizzato per il tuo stile</div></div><span class="svc-arrow">→</span></div>
+    <div class="svc-item"><div><div class="svc-name">BARBA & RASATURA</div><div class="svc-desc">Rifinitura barba, rasatura classica con panni caldi e prodotti premium</div></div><span class="svc-arrow">→</span></div>
+    <div class="svc-item"><div><div class="svc-name">TAGLIO + BARBA</div><div class="svc-desc">Il pacchetto completo — capelli e barba perfetti in una sola seduta</div></div><span class="svc-arrow">→</span></div>
+    <div class="svc-item"><div><div class="svc-name">TAGLIO BAMBINO</div><div class="svc-desc">Tagli per bambini con pazienza e professionalità — i più piccoli sono i benvenuti!</div></div><span class="svc-arrow">→</span></div>
+    <div class="svc-item"><div><div class="svc-name">COLORAZIONE UOMO</div><div class="svc-desc">Copertura capelli bianchi e colorazione professionale per l'uomo moderno</div></div><span class="svc-arrow">→</span></div>
+    <div class="svc-item"><div><div class="svc-name">TRATTAMENTI</div><div class="svc-desc">Trattamenti cuoio capelluto e prodotti professionali per capelli sani e forti</div></div><span class="svc-arrow">→</span></div>
+  </div>
+</section>
+
+<!-- BARBER STRIP -->
+<div class="barber-strip">
+  <img src="https://images.unsplash.com/photo-1588771930296-6f04da0a7473?w=1200&q=80" alt="Barbiere professionale">
+  <div class="barber-overlay">
+    <p class="bs-pre">✦ MAESTRIA ITALIANA ✦</p>
+    <h2 class="bs-title">L'ARTE DEL TAGLIO PERFETTO</h2>
+    <p class="bs-sub">Da Filippo ogni dettaglio conta — dalla prima forbiciata all'ultima rifinitura. Precisione, stile e passione in ogni taglio.</p>
+  </div>
+</div>
+
+<!-- RECENSIONI -->
+<section class="recensioni">
+  <p class="sec-pre">Recensioni</p>
+  <div class="rev-header">
+    <span class="rev-num">4.8</span>
+    <div>
+      <div class="rev-stars">★★★★★</div>
+      <div class="rev-label">54 Recensioni Google</div>
+    </div>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card">
+      <p class="rev-text">"Il miglior barbiere di Matera! Filippo è un professionista vero — ascolta, consiglia e taglia in modo impeccabile. Non andrò mai da nessun altro!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Finalmente un barbiere che sa il fatto suo! Taglio perfetto, barba curata e ambiente accogliente. Prezzi giusti per la qualità offerta. Consigliatissimo!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Sono cliente fisso da anni. Filippo conosce il mio stile e ogni volta il risultato è perfetto. Professionalità e simpatia al top!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Taglio preciso, puntuale e sempre sorridente. Un barbiere come si deve — di quelli rari. Lo consiglio a tutti gli uomini di Matera!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<div class="social-strip">
+  <div class="ss-title">SEGUICI SUI SOCIAL</div>
+  <div class="ss-sub">Guarda i nostri tagli e stili su Instagram e Facebook — nuovi look ogni settimana!</div>
+  <div class="ss-links">
+    <a href="https://www.instagram.com/taglionetto_/" target="_blank" class="ss-btn">📸 @taglionetto_</a>
+    <a href="https://www.facebook.com/Filippoacconciature/" target="_blank" class="ss-btn">📘 FACEBOOK</a>
+  </div>
+</div>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div>
+    <p class="ct-pre">Contattaci</p>
+    <h2 class="ct-title">PRENOTA IL TUO TAGLIO</h2>
+    <div class="ct-rule"></div>
+    <p class="ct-text">Scrivi su WhatsApp o chiamaci — Filippo risponde personalmente e trova subito il posto giusto per te!</p>
+    <div class="c-item"><div class="c-icon">📞</div><div class="c-info"><strong>WhatsApp / Telefono</strong><a href="https://wa.me/393333980957">+39 333 398 0957</a></div></div>
+    <div class="c-item"><div class="c-icon">📍</div><div class="c-info"><strong>Indirizzo</strong><span>Via G. Marconi 111, 75100 Matera (MT)</span></div></div>
+    <div class="c-item"><div class="c-icon">📸</div><div class="c-info"><strong>Instagram</strong><a href="https://www.instagram.com/taglionetto_/" target="_blank">@taglionetto_</a></div></div>
+    <div class="c-item"><div class="c-icon">📘</div><div class="c-info"><strong>Facebook</strong><a href="https://www.facebook.com/Filippoacconciature/" target="_blank">Filippo Acconciature</a></div></div>
+  </div>
+  <div class="wa-box">
+    <div class="wa-title">PRENOTA CON FILIPPO</div>
+    <div class="wa-sub">WhatsApp è il modo più veloce — Filippo risponde subito e prenota il tuo posto!</div>
+    <a href="https://wa.me/393333980957" target="_blank" class="wa-btn">💬 WHATSAPP</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">TAGLIO <span>NETTO</span></div>
+    <div class="footer-sub">Filippo · Parrucchiere Uomo · Matera · Basilicata · Italia</div>
+  </div>
+  <div class="footer-info">
+    Via G. Marconi 111 · 75100 Matera (MT) · +39 333 398 0957
+  </div>
+</footer>
+</body>
+</html>
